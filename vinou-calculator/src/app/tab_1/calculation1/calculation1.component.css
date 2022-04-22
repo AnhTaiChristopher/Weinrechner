@@ -1,0 +1,42 @@
+.header-title {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.header-title {
+  font-size: 1.3em;
+  font-weight: 300;
+  color: #333;
+  margin: 1em;
+}
+
+.main-button {
+  border-radius: 200px;
+  background-color: #222222;
+  color: white;
+  min-width: 100px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-dropdown select {
+  min-width: 100px;
+  margin: 1em;
+}
+
+#help-block-eingabe {
+  position: absolute;
+  top: 5em;
+  right: 0;
+  bottom: 3em;
+  left: 0;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

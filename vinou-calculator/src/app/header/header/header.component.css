@@ -1,0 +1,116 @@
+.container-fluid svg {
+  margin-left: 1em;
+}
+
+.navbar {
+  height: 100px;
+}
+
+.navbar-nav li {
+  border-bottom: none!important;
+}
+
+svg {
+  margin: 0em 0.7em 0.7em 0em;
+}
+
+.container a {
+  color: #640000;
+}
+
+.container-background {
+  /* background-color: #ebebeb; */
+  background-color: #f6f6f6;
+  position: fixed;
+  width: 100%;
+}
+
+/* Navbar_Icon_Code */
+
+.navbar-toggler {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+  position: fixed;
+  right: 4%;
+}
+
+.navbar-toggler span {
+  margin: 0;
+  padding: 0;
+}
+
+.toggler-icon {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #d3531a;
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.middle-bar {
+  margin-top: 0px;
+}
+
+/* State when the navbar is collapsed */
+
+.navbar-toggler.collapsed .top-bar {
+  position: absolute;
+  top: 2px;
+  transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  position: absolute;
+  top: 10px;
+  transform: rotate(0deg);
+}
+
+/* when navigation is clicked */
+
+.navbar-toggler .top-bar {
+  top: inherit;
+  transform: rotate(135deg);
+}
+
+.navbar-toggler .bottom-bar {
+  top: inherit;
+  transform: rotate(-135deg);
+}
+
+/* Color of  lines */
+
+.navbar-toggler.collapsed .toggler-icon {
+  background: linear-gradient(
+    300deg,
+    rgba(252, 74, 74, 1) 0%,
+    rgba(100, 10, 10, 1) 100%
+  );
+}
+
+.navbar-nav li {
+  border-bottom: 1px solid white;
+}
+
+.navbar-nav li a {
+  color: #640000;
+}
+
+#offcanvasRightLabel {
+  color: #640000;
+}

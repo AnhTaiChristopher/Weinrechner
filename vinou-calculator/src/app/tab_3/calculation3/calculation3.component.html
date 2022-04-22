@@ -1,0 +1,142 @@
+<form [formGroup]="calculation3Form" (ngSubmit)="onSubmit()" #f="ngForm" >
+
+    <div formGroupName="userData">
+
+        <div class="container-background" >
+            <div class="container">
+
+                <div class="header">
+
+                    <div class="header-main pt-4">
+                        <img class="header-img d-inline me-4" src="/assets/images/calculator_icon.png" height="60px" width="60px">
+                        <h3 class="d-inline header-title">Anreicherung mit Saccharose zur Alkoholerhöhung</h3>
+                    </div>
+                
+                    <div class="header-container row d-flex align-items-center">
+                        <div class="header-content d-flex align-items-center">
+
+                            <div class="header-result col-md-7">
+                                <span 
+                                    *ngIf="calculation3Form.get('userData.ausgangsmost')?.valid && calculation3Form.get('userData.anreicherungsquote')?.valid && calculation3Form.get('userData.zuckerungsfaktor')?.valid">
+                                    {{calculation3Form.get("userData.result")?.value}} {{selectedUnit}} Zucker auf {{calculation3Form.get("userData.ausgangsmost")?.value}} {{selectedUnit2}} Most
+                                </span>
+                            </div>
+
+                            <input 
+                                readonly
+                                class="main-input col-md-3" 
+                                type="number" 
+                                style="visibility: hidden;"
+                            >
+                            <div class="header-dropdown dropdown col-md-2">
+                                <select class="btn btn-success" (change)="onChangeSelectedWeight($event)" (change)="onChangeUnit($event)">
+                                    <option value="g">g</option>
+                                    <option value="kg" selected>kg</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+            <div class="row">
+
+                <div id="main-content" class="main-content">
+                    <div class="main-title col-md-7">Ausgangsmost (hl)</div>
+                    <input 
+                        class="main-input col-md-3 form-control" 
+                        type="number"
+                        name="ausgangsmost"
+                        formControlName="ausgangsmost"
+                        (input)="calculateResultForm"
+                    >
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedVolume($event)" (change)="onChangeUnit2($event)">
+                            <option value="l">l</option>
+                            <option value="hl" selected>hl</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="main-title col-md-7">Anreicherungsquote (g/l)</div>
+                    <input 
+                        class="main-input col-md-3 form-control" 
+                        type="number"
+                        name="anreicherungsquote"
+                        formControlName="anreicherungsquote"
+                        (input)="calculateResultForm"
+                    >
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeightVolume($event)">
+                            <option value="g/l" selected>g/l</option>
+                            <option value="kg/l">kg/l</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="main-title col-md-7">Zuckerungsfaktor</div>
+                    <input 
+                        class="main-input col-md-3 form-control" 
+                        type="number"
+                        name="zuckerungsfaktor"
+                        formControlName="zuckerungsfaktor"
+                    >
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedZuckerungsfaktor($event)">
+                            <option value="g/l">g/l</option>
+                            <option value="kg/l"selected>kg/hl</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="main-title col-md-7">konstante Dichte von Saccharose</div>
+                    <input 
+                        class="main-input col-md-3 form-control" 
+                        type="number"
+                        name="saccharose"
+                        formControlName="saccharose"
+                        placeholder="0.62"
+                        readonly
+                    >
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeight($event)">
+                            <option value="kg/l">l/kg</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="main-title col-md-7">Volumenvermehrung (Zucker)</div>
+                    <input 
+                        readonly
+                        class="main-input col-md-3 form-control" 
+                        type="number"
+                        name="volumenvermehrung"
+                        formControlName="volumenvermehrung"
+                    >
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeight($event)">
+                            <option value="l">l</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container mt-4 ms-2">
+                <button 
+                    class="btn main-button" 
+                    (click)="calculateResultForm()"
+                    >Berechne
+                </button>
+            </div>
+
+        </div>
+    </div>
+</form>

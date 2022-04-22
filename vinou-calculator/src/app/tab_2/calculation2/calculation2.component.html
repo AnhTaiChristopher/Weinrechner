@@ -1,0 +1,112 @@
+<form [formGroup]="calculation2Form" (ngSubmit)="onSubmit()" #f="ngForm" >
+
+    <div formGroupName="userData">
+
+        <div class="container-background" >
+            <div class="container">
+                
+                <div class="header">
+
+                    <div class="header-main pt-4">
+                        <img class="header-img d-inline me-4" src="/assets/images/calculator_icon.png" height="60px" width="60px">
+                        <h3 class="header-title d-inline">Restsüßeverleihung mit RTK</h3>
+                    </div>
+                    
+                    <div class="header-container row d-flex align-items-center">
+                        <div class="header-content d-flex align-items-center">
+                            
+                            <div class="header-result col-md-7">
+                                <span 
+                                    *ngIf="calculation2Form.get('userData.restzuckergewünscht')?.valid && calculation2Form.get('userData.brix')?.valid && calculation2Form.get('userData.weinmenge')?.valid">
+                                    {{calculation2Form.get("userData.result")?.value}} {{selectedUnit}} rekt. Konzentrat
+                                </span>
+                            </div>
+
+                            <input 
+                                readonly
+                                class="main-input col-md-3" 
+                                type="number" 
+                                style="visibility: hidden;"
+                            >
+                            <div class="header-dropdown dropdown col-md-2">
+                                <select class="btn btn-success" (change)="onChangeSelectedWeight($event)" (change)="onChangeUnit($event)">
+                                    <option value='g' selected>g</option>
+                                    <option value='kg'>kg</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+            <div class="row">
+                
+                <div id="main-content" class="main-content">
+                    <div class="main-title col-md-7">Restzucker gewünscht (g/l)</div>
+                    <input 
+                        class="main-input col-md-3 form-control" 
+                        type="number"
+                        name="restzuckergewünscht"
+                        formControlName="restzuckergewünscht"
+                        (input)="calculateResultForm"
+                    >
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeightVolume($event)">
+                            <option value="g/l" selected>g/l</option>
+                            <option value="kg/l">kg/l</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="main-content">
+                    <div class="main-title col-md-7">°Brix</div>
+                    <input 
+                        class="main-input col-md-3 form-control" 
+                        type="number"
+                        name="brix"
+                        formControlName="brix"
+                        (input)="calculateResultForm"
+                    >
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select name="membership" id="membership" class="btn btn-success">
+                            <option value="free">°Grad</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="main-content">
+                    <div class="main-title col-md-7">Weinmenge (l)</div>
+                    <input 
+                        class="main-input col-md-3 form-control" 
+                        type="number"
+                        name="weinmenge"
+                        formControlName="weinmenge"
+                    >
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedVolume($event)">
+                            <option value="l" selected>l</option>
+                            <option value="hl">hl</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="container mt-4 ms-3">
+                    <button 
+                        class="btn main-button" 
+                        (click)="calculateResultForm()"
+                        type="submit"
+                        >Berechne
+                    </button>
+                </div>
+    
+            </div>
+
+          
+        </div>
+        
+    </div>
+</form>

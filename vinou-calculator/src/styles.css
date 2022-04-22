@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* Importing Datepicker SCSS file. */
+/* @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"; */
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.main-button {
+  border-radius: 200px;
+  background-color: #222222;
+  color: white;
+  min-width: 110px;
+}
+
+/* styling for header section of calculations */
+
+.header {
+  min-height: 400px;
+  padding-top: 100px;
+}
+
+.container-background {
+  background-color: #ebebeb;
+}

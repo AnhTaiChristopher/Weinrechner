@@ -1,0 +1,127 @@
+<form [formGroup]="calculation1Form" (ngSubmit)="onSubmit()">
+
+    <div formGroupName="userData">
+        
+        <div class="container-background">
+            <div class="container">
+                <div class="header">
+
+                    <div class="header-main pt-4">
+                        <img class="header-img d-inline me-4" src="/assets/images/calculator_icon.png" height="60px" width="60px">
+                        <h3 class="header-title d-inline ">Alkoholausbeute aus dem Most berechnen</h3>
+                    </div>
+
+                    <div class="header-container pt-4 row d-flex align-items-center">
+                        <div class="header-content d-flex align-items-center">
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 text-center" style="position: relative;">
+                                <label for="oechsle" class="form-label col-12">Eingabe</label>
+                                <input 
+                                    type="number" 
+                                    name="eingabe" 
+                                    class="form-control" 
+                                    id="eingabe" 
+                                    formControlName="eingabe"
+                                >
+                            <span id="help-block-eingabe" class="help-block" *ngIf="!calculation1Form.get('userData.eingabe')?.valid && calculation1Form.get('userData.eingabe')?.touched">Bitte gebe eine Zahl ein!</span>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <label for="oechsle" class="form-label col-12" style="visibility: hidden;">Eingabe</label>
+                                <select name="membership" id="membership" class="btn btn-success"(change)="onChangeSelected($event)" [disabled]="calculation1Form.get('userData.eingabe')?.invalid">
+                                    <option value="oechsle" selected>Oechsle</option>
+                                    <option value="sugar_weight_vol">Zucker g/l</option>
+                                </select>
+                            </div>
+                        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+
+                <div class="main-content my-5 col-lg-6 col-md-12">
+                    <div class="main-title text-center mb-3">Zuckergehalt</div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <label for="oechsle" class="form-label">Oechsle</label>
+                            <input 
+                                readonly
+                                type="text" 
+                                name="oechsle" 
+                                class="form-control mb-2" 
+                                id="oechsle" 
+                                formControlName="oechsle"
+                            >
+                        </div>
+    
+                        <div class="col-md-4 text-center">
+                            <label for="kmw" class="form-label">KMW</label>
+                            <input 
+                                readonly
+                                type="text" 
+                                name="kmw" 
+                                class="form-control mb-2" 
+                                id="kmw" 
+                                formControlName="kmw"
+                            >
+                        </div>
+    
+                        <div class="col-md-4 text-center">
+                            <label for="sugar_g/l" class="form-label">g/l</label>
+                            <input 
+                                readonly
+                                type="text" 
+                                name="sugar_weight_vol" 
+                                class="form-control" 
+                                id="sugar_weight_vol" 
+                                formControlName="sugar_weight_vol"
+                            >
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="main-content my-5 col-lg-6 col-md-12">
+                    <div class="main-title text-center mb-3">Alkoholgehalt</div>
+                        <div class="row">
+        
+                            <div class="col-md-6 text-center">
+                                <label for="oechsle" class="form-label">g/l</label>
+                                <input 
+                                    readonly
+                                    type="text" 
+                                    name="alcohol_weight_vol" 
+                                    class="form-control mb-2" 
+                                    id="alcohol_weight_vol" 
+                                    formControlName="alcohol_weight_vol"
+                                >
+                            </div>
+        
+                            <div class="col-md-6 text-center">
+                                <label for="oechsle" class="form-label">%vol</label>
+                                <input 
+                                    readonly
+                                    type="text" 
+                                    name="alcohol_vol" 
+                                    class="form-control mb-2" 
+                                    id="alcohol_vol" 
+                                    formControlName="alcohol_vol"
+                                >
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+            
+        <div class="container">
+            <button class="btn main-button" (click)="calculateResultForm()">Berechne</button>
+        </div>
+</form>
