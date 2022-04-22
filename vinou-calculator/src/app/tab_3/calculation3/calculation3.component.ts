@@ -13,9 +13,7 @@ export class Calculation3Component implements OnInit, OnDestroy {
   selectedUnit2: string = "hl";
 
   calculation3Form!: FormGroup;
-  sub1!:Subscription
-  sub2!:Subscription
-  sub3!:Subscription
+  subscription!:Subscription
 
   constructor(private fb: FormBuilder) { 
 
@@ -33,7 +31,7 @@ export class Calculation3Component implements OnInit, OnDestroy {
       })
     })
 
-    this.sub1=merge(
+    this.subscription=merge(
       this.calculation3Form.get('userData.ausgangsmost')!.valueChanges,
       this.calculation3Form.get('userData.anreicherungsquote')!.valueChanges,
       this.calculation3Form.get('userData.zuckerungsfaktor')!.valueChanges,
@@ -44,9 +42,9 @@ export class Calculation3Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub1.unsubscribe()
-    this.sub2.unsubscribe()
-    this.sub3.unsubscribe()
+    if(this.subscription) {
+      this.subscription.unsubscribe()
+    }
   }
 
   calculateResultForm() {

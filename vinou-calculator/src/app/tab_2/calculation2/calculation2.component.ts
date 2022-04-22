@@ -12,9 +12,7 @@ export class Calculation2Component implements OnInit, OnDestroy {
   selectedUnit: string = "g";
 
   calculation2Form!: FormGroup;
-  sub1!:Subscription
-  sub2!:Subscription
-  sub3!:Subscription
+  subcription!:Subscription
 
   constructor(private fb: FormBuilder) { 
     
@@ -30,17 +28,13 @@ export class Calculation2Component implements OnInit, OnDestroy {
       })
     })
  
-    this.sub1=merge(
+    this.subcription=merge(
       this.calculation2Form.get('userData.restzuckergewünscht')!.valueChanges,
       this.calculation2Form.get('userData.brix')!.valueChanges,
       this.calculation2Form.get('userData.weinmenge')!.valueChanges,
     ).subscribe((res:any)=>{
       this.calculateResultForm()
    })
-
-   console.log(this.selectedUnit)
-   console.log("hello world")
-  
   }
  
   calculateResultForm() {
@@ -55,9 +49,10 @@ export class Calculation2Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-      this.sub1.unsubscribe()
-      this.sub2.unsubscribe()
-      this.sub3.unsubscribe()
+    if(this.subcription) {
+      this.subcription.unsubscribe()
+    }
+     
   }
 
   onChangeSelectedWeight(event: any) {

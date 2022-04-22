@@ -29,3 +29,12 @@ body::-webkit-scrollbar {
 .container-background {
   background-color: #ebebeb;
 }
+
+.active {
+  color: #DB5B14!important;
+  font-style: bold;
+}
+
+.nav-link:hover {
+  background-color: #707070;
+}

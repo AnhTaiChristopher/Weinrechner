@@ -18,8 +18,7 @@ svg {
   color: #640000;
 }
 
-.container-background {
-  /* background-color: #ebebeb; */
+.header-background {
   background-color: #f6f6f6;
   position: fixed;
   width: 100%;
@@ -30,24 +29,14 @@ svg {
 .navbar-toggler {
   width: 20px;
   height: 20px;
-  position: relative;
-  transition: 0.5s ease-in-out;
 }
 
-.navbar-toggler,
-.navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
+.navbar-toggler {
   outline: none;
   box-shadow: none;
   border: 0;
   position: fixed;
   right: 4%;
-}
-
-.navbar-toggler span {
-  margin: 0;
-  padding: 0;
 }
 
 .toggler-icon {
@@ -63,10 +52,6 @@ svg {
   transition: 0.25s ease-in-out;
 }
 
-.middle-bar {
-  margin-top: 0px;
-}
-
 /* State when the navbar is collapsed */
 
 .navbar-toggler.collapsed .top-bar {
@@ -79,18 +64,6 @@ svg {
   position: absolute;
   top: 10px;
   transform: rotate(0deg);
-}
-
-/* when navigation is clicked */
-
-.navbar-toggler .top-bar {
-  top: inherit;
-  transform: rotate(135deg);
-}
-
-.navbar-toggler .bottom-bar {
-  top: inherit;
-  transform: rotate(-135deg);
 }
 
 /* Color of  lines */
