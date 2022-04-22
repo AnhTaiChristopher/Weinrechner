@@ -66,28 +66,22 @@ export class Calculation2Component implements OnInit, OnDestroy {
   }
 
   onChangeSelectedWeightVolume(event: any) {
-    const restzuckergewünscht = this.calculation2Form.get('userData.restzuckergewünscht')?.value
     const result=+this.calculation2Form.get('userData.result')?.value
 
     if(event.target.value == "g/l") {
-      this.calculation2Form.get("userData.restzuckergewünscht")?.setValue(restzuckergewünscht*1000)
-      this.calculation2Form.get("userData.result")?.setValue(result)
+      this.calculation2Form.get("userData.result")?.setValue(result/1000)
     } else if(event.target.value == "kg/l") {
-      this.calculation2Form.get("userData.restzuckergewünscht")?.setValue(restzuckergewünscht/1000)
-      this.calculation2Form.get("userData.result")?.setValue(result)
+      this.calculation2Form.get("userData.result")?.setValue(result*1000)
     }
   }
 
   onChangeSelectedVolume(event: any) {
-    const weinmenge=+this.calculation2Form.get('userData.weinmenge')?.value
     const result=+this.calculation2Form.get('userData.result')?.value
 
     if(event.target.value == "l") {
-      this.calculation2Form.get("userData.weinmenge")?.setValue(weinmenge*100)
-      this.calculation2Form.get("userData.result")?.setValue(result)
+      this.calculation2Form.get("userData.result")?.setValue(result/100)
     } else if(event.target.value == "hl") {
-      this.calculation2Form.get("userData.weinmenge")?.setValue(weinmenge/100)
-      this.calculation2Form.get("userData.result")?.setValue(result)
+      this.calculation2Form.get("userData.result")?.setValue(result*100)
     }
   }
 

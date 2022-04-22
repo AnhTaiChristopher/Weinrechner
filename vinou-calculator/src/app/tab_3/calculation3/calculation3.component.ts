@@ -64,46 +64,46 @@ export class Calculation3Component implements OnInit, OnDestroy {
   }
 
   onChangeSelectedVolume(event: any) {
-    const ausgangsmost=+this.calculation3Form.get('userData.ausgangsmost')?.value
     const result=+this.calculation3Form.get('userData.result')?.value
+    const volumenvermehrung=+this.calculation3Form.get('userData.result')?.value
 
     if (event.target.value == "hl") {
-      this.calculation3Form.get("userData.ausgangsmost")?.setValue(ausgangsmost/100)
-      this.calculation3Form.get("userData.result")?.setValue(result)
+      this.calculation3Form.get("userData.result")?.setValue(result*100)
+      this.calculation3Form.get("userData.result")?.setValue(result*100)
     } else if(event.target.value == "l") {
-      this.calculation3Form.get("userData.ausgangsmost")?.setValue(ausgangsmost*100)
-      this.calculation3Form.get("userData.result")?.setValue(result)
+      this.calculation3Form.get("userData.result")?.setValue(result/100)
+      this.calculation3Form.get("userData.result")?.setValue(result*100)
     }
   }
 
   onChangeSelectedWeightVolume(event: any) {
-    const anreicherungsquote=+this.calculation3Form.get('userData.anreicherungsquote')?.value
     const result=+this.calculation3Form.get('userData.result')?.value
+    const volumenvermehrung=+this.calculation3Form.get('userData.volumenvermehrung')?.value
 
     if(event.target.value == "g/l") {
-      this.calculation3Form.get("userData.anreicherungsquote")?.setValue(anreicherungsquote*1000)
-      this.calculation3Form.get("userData.result")?.setValue(result)
+      this.calculation3Form.get("userData.result")?.setValue(result/1000)
+      this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung/1000)
     } else if(event.target.value == "kg/l") {
-      this.calculation3Form.get("userData.anreicherungsquote")?.setValue(anreicherungsquote/1000)
-      this.calculation3Form.get("userData.result")?.setValue(result)
+      this.calculation3Form.get("userData.result")?.setValue(result*1000)
+      this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung*1000)
     }
   }
 
   onChangeSelectedZuckerungsfaktor(event: any) {
-    const zuckerungsfaktor=+this.calculation3Form.get('userData.zuckerungsfaktor')?.value
     const result=+this.calculation3Form.get('userData.result')?.value
+    const volumenvermehrung=+this.calculation3Form.get('userData.volumenvermehrung')?.value
 
     if(event.target.value == "g/l") {
-      this.calculation3Form.get("userData.zuckerungsfaktor")?.setValue(zuckerungsfaktor*1000)
-      this.calculation3Form.get("userData.result")?.setValue(result)
+      this.calculation3Form.get("userData.result")?.setValue(result/1000)
+      this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung/1000)
     } else if(event.target.value == "kg/l") {
-      this.calculation3Form.get("userData.zuckerungsfaktor")?.setValue(zuckerungsfaktor/1000)
-      this.calculation3Form.get("userData.result")?.setValue(result)
+      this.calculation3Form.get("userData.result")?.setValue(result*1000)
+      this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung*1000)
     }
   }
 
   onChangeSelectedWeight(event: any) {
-    const result=+this.calculation3Form.get('userData.result')?.value
+    const result=+this.calculation3Form.get('userData.volumenvermehrung')?.value
 
     if(event.target.value == "g") {
       this.calculation3Form.get("userData.result")?.setValue(result*1000)
