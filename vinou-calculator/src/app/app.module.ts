@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { HomeContentComponent } from './home/home-content/home-content.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxHideOnScrollModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

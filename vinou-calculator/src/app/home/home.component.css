@@ -7,26 +7,26 @@
 }
 
 .text-white {
-  padding-bottom: 27em;
 }
 
-.header-title {
+.home-header-title {
   font-weight: 700;
   color: #fff;
   font-size: 3.5rem;
   line-height: 1.2em;
 }
 
-.header-sub-title {
+.home-header-sub-title {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid orange; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  overflow-wrap: break-word;
   letter-spacing: .08em; 
   animation: 
     typing 3s steps(40, end),
     blink-caret .75s step-end infinite;
-    animation-duration: 4s;
+    animation-duration: 3s;
 }
 
 @keyframes typing {

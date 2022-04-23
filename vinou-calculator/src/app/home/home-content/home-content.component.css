@@ -37,6 +37,31 @@
   margin: 0;
 }
 
+
+.home-button-info button {
+  border-radius: 200px;
+  background-color: #222222;
+  color: white;
+}
+
+.home-button-calc button {
+  border-radius: 200px;
+  background-color: #222222;
+  color: white;
+}
+
+
+.home-button-calc button:hover {
+  background-color: #DB5B14;
+  transition: all 0.3s ease;
+}
+
+.home-button-info button:hover {
+  background-color: #DB5B14;
+  transition: all 0.3s ease;
+}
+
+
 .post-text {
   margin-top: 4px;
   color: #495057;
@@ -45,18 +70,6 @@
 
   max-height: 40px;
   overflow: hidden;
-}
-
-.home-button-info button {
-  border-radius: 200px;
-  background-color: #222222;
-  color: white;
-}
-
-.home-button-calc button  {
-  border-radius: 200px;
-  background-color: #222222;
-  color: white;
 }
 
 a {
