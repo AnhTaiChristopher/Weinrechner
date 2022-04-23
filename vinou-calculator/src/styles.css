@@ -12,13 +12,6 @@ body::-webkit-scrollbar {
   scrollbar-width: none; /* Firefox */
 }
 
-.main-button {
-  border-radius: 200px;
-  background-color: #222222;
-  color: white;
-  min-width: 110px;
-}
-
 /* styling for header section of calculations */
 
 .header {

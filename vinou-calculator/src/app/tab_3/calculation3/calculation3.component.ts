@@ -24,7 +24,7 @@ export class Calculation3Component implements OnInit, OnDestroy {
       "userData": new FormGroup({
         "result": new FormControl(null),
         "ausgangsmost": new FormControl(null, [Validators.required]),
-        "anreicherungsquote": new FormControl(null, [Validators.required]),
+        "anreicherungsquote": new FormControl(null, [Validators.required, Validators.max(28)]),
         "zuckerungsfaktor": new FormControl(null, [Validators.required]),
         "saccharose": new FormControl(null),
         "volumenvermehrung": new FormControl(null),
@@ -52,7 +52,7 @@ export class Calculation3Component implements OnInit, OnDestroy {
     const anreicherungsquote=this.calculation3Form.get('userData.anreicherungsquote')?.value
     const zuckerungsfaktor=this.calculation3Form.get('userData.zuckerungsfaktor')?.value
     this.calculation3Form.get('userData.result')?.setValue((zuckerungsfaktor*anreicherungsquote*ausgangsmost).toFixed(1))
-    this.calculation3Form.get('userData.volumenvermehrung')?.setValue((zuckerungsfaktor*anreicherungsquote*ausgangsmost*0.62).toFixed(1))
+    this.calculation3Form.get('userData.volumenvermehrung')?.setValue(Math.round(zuckerungsfaktor*anreicherungsquote*ausgangsmost*0.62))
   }
  
   onChangeUnit(event: any) {
@@ -65,14 +65,14 @@ export class Calculation3Component implements OnInit, OnDestroy {
 
   onChangeSelectedVolume(event: any) {
     const result=+this.calculation3Form.get('userData.result')?.value
-    const volumenvermehrung=+this.calculation3Form.get('userData.result')?.value
+    const volumenvermehrung=+this.calculation3Form.get('userData.volumenvermehrung')?.value
 
     if (event.target.value == "hl") {
       this.calculation3Form.get("userData.result")?.setValue(result*100)
       this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung*100)
     } else if(event.target.value == "l") {
       this.calculation3Form.get("userData.result")?.setValue(result/100)
-      this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung*100)
+      this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung/100)
     }
   }
 
@@ -103,7 +103,7 @@ export class Calculation3Component implements OnInit, OnDestroy {
   }
 
   onChangeSelectedWeight(event: any) {
-    const result=+this.calculation3Form.get('userData.volumenvermehrung')?.value
+    const result=+this.calculation3Form.get('userData.result')?.value
 
     if(event.target.value == "g") {
       this.calculation3Form.get("userData.result")?.setValue(result*1000)

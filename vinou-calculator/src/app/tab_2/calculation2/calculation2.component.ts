@@ -39,9 +39,9 @@ export class Calculation2Component implements OnInit, OnDestroy {
   }
  
   calculateResultForm() {
-    const restzuckergewünscht=+this.calculation2Form.get('userData.restzuckergewünscht')?.value
-    const brix=+this.calculation2Form.get('userData.brix')?.value
-    const weinmenge=+this.calculation2Form.get('userData.weinmenge')?.value
+    const restzuckergewünscht=this.calculation2Form.get('userData.restzuckergewünscht')?.value
+    const brix=this.calculation2Form.get('userData.brix')?.value
+    const weinmenge=this.calculation2Form.get('userData.weinmenge')?.value
     this.calculation2Form.get('userData.result')?.setValue(Math.round((weinmenge*restzuckergewünscht)/(brix/100)))
   }
 

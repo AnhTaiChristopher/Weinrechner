@@ -7,8 +7,8 @@
                 <div class="header">
 
                     <div class="header-main pt-4">
-                        <img class="header-img d-inline me-4" src="/assets/images/calculator_icon.png" height="60px" width="60px">
-                        <h3 class="header-title d-inline ">Alkoholausbeute aus dem Most berechnen</h3>
+                        <img class="header-img d-inline me-3" src="/assets/images/calculator_icon.png" height="60px" width="60px">
+                        <h3 class="header-title d-inline">Alkoholausbeute im Most berechnen</h3>
                     </div>
 
                     <div class="header-container pt-4 row d-flex align-items-center">
@@ -26,7 +26,7 @@
                             <span id="help-block-eingabe" class="help-block" *ngIf="!calculation1Form.get('userData.eingabe')?.valid && calculation1Form.get('userData.eingabe')?.touched">Bitte gebe eine Zahl ein!</span>
                             </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="col-lg-3 col-md-3 col-sm-3 ps-3">
                                 <label for="oechsle" class="form-label col-12" style="visibility: hidden;">Eingabe</label>
                                 <select name="membership" id="membership" class="btn btn-success"(change)="onChangeSelected($event)" [disabled]="calculation1Form.get('userData.eingabe')?.invalid">
                                     <option value="oechsle">Oechsle</option>
@@ -117,11 +117,5 @@
                     </div>
                 </div>
             </div>
-            
-
         </div>
-<!--             
-        <div class="container">
-            <button class="btn main-button" (click)="calculateResultForm()">Berechne</button>
-        </div> -->
 </form>
