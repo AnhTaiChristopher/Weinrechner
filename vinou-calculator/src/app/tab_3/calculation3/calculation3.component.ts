@@ -69,10 +69,10 @@ export class Calculation3Component implements OnInit, OnDestroy {
 
     if (event.target.value == "hl") {
       this.calculation3Form.get("userData.result")?.setValue(result*100)
-      this.calculation3Form.get("userData.result")?.setValue(result*100)
+      this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung*100)
     } else if(event.target.value == "l") {
       this.calculation3Form.get("userData.result")?.setValue(result/100)
-      this.calculation3Form.get("userData.result")?.setValue(result*100)
+      this.calculation3Form.get("userData.volumenvermehrung")?.setValue(volumenvermehrung*100)
     }
   }
 

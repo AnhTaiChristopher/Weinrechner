@@ -29,7 +29,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-3">
                                 <label for="oechsle" class="form-label col-12" style="visibility: hidden;">Eingabe</label>
                                 <select name="membership" id="membership" class="btn btn-success"(change)="onChangeSelected($event)" [disabled]="calculation1Form.get('userData.eingabe')?.invalid">
-                                    <option value="oechsle" selected>Oechsle</option>
+                                    <option value="oechsle">Oechsle</option>
                                     <option value="sugar_weight_vol">Zucker g/l</option>
                                 </select>
                             </div>
@@ -120,8 +120,8 @@
             
 
         </div>
-            
+<!--             
         <div class="container">
             <button class="btn main-button" (click)="calculateResultForm()">Berechne</button>
-        </div>
+        </div> -->
 </form>
