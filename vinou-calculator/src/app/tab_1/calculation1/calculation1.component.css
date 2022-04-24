@@ -1,41 +1,8 @@
-.header-title {
-  font-size: 1.2em;
-  font-weight: 400;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-dropdown select {
-  min-width: 100px;
-  margin: 1em;
-}
-
-@media (max-width: 767px) {  
-  .header-title {
-    font-size: 1em;
-  }
-}
-
 #help-block-eingabe {
   position: absolute;
   top: 5em;
   right: 0;
-  bottom: 3em;
+  bottom: 0;
   left: 0;
-}
-
-input.ng-invalid.ng-touched,
-select.ng-invalid.ng-touched {
-  border: 1px solid red;
-}
-
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
 }
 

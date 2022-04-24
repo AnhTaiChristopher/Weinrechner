@@ -12,6 +12,10 @@ body::-webkit-scrollbar {
   scrollbar-width: none; /* Firefox */
 }
 
+.container-background {
+  background-color: #ebebeb;
+}
+
 /* styling for header section of calculations */
 
 .header {
@@ -19,8 +23,42 @@ body::-webkit-scrollbar {
   padding-top: 100px;
 }
 
-.container-background {
-  background-color: #ebebeb;
+.header-title {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {  
+  .header-title {
+    font-size: 1em;
+  }
+}
+
+.header-result {
+  font-size: 1.3em;
+  font-weight: 300;
+  color: #333;
+  margin: 1em;
+  min-width: 100px;
+}
+
+.header-dropdown select {
+  min-width: 100px;
+  margin: 1em;
+}
+
+.main-input {
+  min-width: 100px;
+  max-width: 100px;
+  height: 34px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.main-dropdown select {
+  min-width: 100px;
+  margin: 1em;
 }
 
 .active {
@@ -31,3 +69,15 @@ body::-webkit-scrollbar {
 .nav-link:hover {
   background-color: #707070;
 }
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+

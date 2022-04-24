@@ -22,9 +22,9 @@ export class Calculation2Component implements OnInit, OnDestroy {
     this.calculation2Form = this.fb.group({
       "userData": new FormGroup({
         "result": new FormControl(null),
-        "restzuckergewünscht": new FormControl(null, [Validators.required]),
-        "brix": new FormControl(null, [Validators.required]),
-        "weinmenge": new FormControl(null, [Validators.required]),
+        "restzuckergewünscht": new FormControl(null, [Validators.required,Validators.min(1)]),
+        "brix": new FormControl(null, [Validators.required,Validators.min(1)]),
+        "weinmenge": new FormControl(null, [Validators.required,Validators.min(1)]),
       })
     })
  

@@ -23,9 +23,9 @@ export class Calculation3Component implements OnInit, OnDestroy {
     this.calculation3Form = this.fb.group({
       "userData": new FormGroup({
         "result": new FormControl(null),
-        "ausgangsmost": new FormControl(null, [Validators.required]),
-        "anreicherungsquote": new FormControl(null, [Validators.required, Validators.max(28)]),
-        "zuckerungsfaktor": new FormControl(null, [Validators.required]),
+        "ausgangsmost": new FormControl(null, [Validators.required,Validators.min(1)]),
+        "anreicherungsquote": new FormControl(null, [Validators.required,Validators.min(1),Validators.max(28)]),
+        "zuckerungsfaktor": new FormControl(null, [Validators.required,Validators.min(1)]),
         "saccharose": new FormControl(null),
         "volumenvermehrung": new FormControl(null),
       })

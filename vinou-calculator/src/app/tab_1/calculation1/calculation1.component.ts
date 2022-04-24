@@ -22,7 +22,7 @@ export class Calculation1Component implements OnInit, OnDestroy {
           "eingabe": new FormControl(null, [Validators.required, Validators.min(1)]),
           "oechsle": new FormControl(null),
           "kmw": new FormControl(null),
-          "sugar_weight_vol": new FormControl(null, [Validators.min(20)]),
+          "sugar_weight_vol": new FormControl(null),
           "alcohol_weight_vol": new FormControl(null),
           "alcohol_vol": new FormControl(null),
         }),

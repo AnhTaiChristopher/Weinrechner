@@ -34,6 +34,7 @@
                                     <option value="kg" selected>kg</option>
                                 </select>
                             </div>
+
                             
                         </div>
                     </div>
@@ -42,18 +43,21 @@
             </div>
         </div>
 
-        <div class="container mt-3">
-            <div class="row">
+        <div class="container mt-3" >
+            <div class="row" >
 
-                <div id="main-content" class="main-content">
+                <div id="main-content" class="main-content" >
                     <div class="main-title col-md-7">Ausgangsmost</div>
-                    <input 
-                        class="main-input col-md-3 form-control" 
-                        type="number"
-                        name="ausgangsmost"
-                        formControlName="ausgangsmost"
-                        (input)="calculateResultForm"
-                    >
+                    <div class="position-relative">
+                        <input 
+                            class="main-input col-md-3 form-control" 
+                            type="number"
+                            name="ausgangsmost"
+                            formControlName="ausgangsmost"
+                            (input)="calculateResultForm"
+                        >
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.ausgangsmost')?.valid && calculation3Form.get('userData.ausgangsmost')?.touched">Bitte gebe eine Zahl ein!</div>
+                    </div>
                     <div class="main-dropdown dropdown col-md-2">
                         <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedVolume($event)" (change)="onChangeUnit2($event)">
                             <option value="l">l</option>
@@ -64,13 +68,16 @@
 
                 <div class="main-content">
                     <div class="main-title col-md-7">Anreicherungsquote</div>
-                    <input 
-                        class="main-input col-md-3 form-control" 
-                        type="number"
-                        name="anreicherungsquote"
-                        formControlName="anreicherungsquote"
-                        (input)="calculateResultForm"
-                    >
+                    <div class="position-relative">
+                        <input 
+                            class="main-input col-md-3 form-control"
+                            type="number"
+                            name="anreicherungsquote"
+                            formControlName="anreicherungsquote"
+                        >
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.anreicherungsquote')?.valid && calculation3Form.get('userData.anreicherungsquote')?.touched">Maximale Quote erreicht!</div>
+                    </div>
+
                     <div class="main-dropdown dropdown col-md-2">
                         <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeightVolume($event)">
                             <option value="g/l" selected>g/l</option>
@@ -81,12 +88,16 @@
 
                 <div class="main-content">
                     <div class="main-title col-md-7">Zuckerungsfaktor</div>
-                    <input 
-                        class="main-input col-md-3 form-control" 
-                        type="number"
-                        name="zuckerungsfaktor"
-                        formControlName="zuckerungsfaktor"
-                    >
+                    <div class="position-relative">
+                        <input 
+                            class="main-input col-md-3 form-control" 
+                            type="number"
+                            name="zuckerungsfaktor"
+                            formControlName="zuckerungsfaktor"
+                        >
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.zuckerungsfaktor')?.valid && calculation3Form.get('userData.zuckerungsfaktor')?.touched">Bitte gebe eine Zahl ein!</div>
+                    </div>
+
                     <div class="main-dropdown dropdown col-md-2">
                         <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedZuckerungsfaktor($event)">
                             <option value="g/l">g/l</option>
@@ -127,6 +138,7 @@
                         </select>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
