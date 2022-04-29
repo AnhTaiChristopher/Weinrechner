@@ -18,7 +18,7 @@
                             <div class="header-result col-md-7">
                                 <span 
                                     *ngIf="calculation3Form.get('userData.ausgangsmost')?.valid && calculation3Form.get('userData.anreicherungsquote')?.valid && calculation3Form.get('userData.zuckerungsfaktor')?.valid">
-                                    {{calculation3Form.get("userData.result")?.value}} {{selectedUnit}} Zucker auf {{calculation3Form.get("userData.ausgangsmost")?.value}} {{selectedUnit2}} Most
+                                    {{calculation3Form.get("userData.result")?.value}} {{selectedUnit}} Zucker auf {{calculation3Form.get("userData.ausgangsmost")?.value | number}} {{selectedUnitVol}} Most
                                 </span>
                             </div>
 
@@ -28,18 +28,11 @@
                                 type="number" 
                                 style="visibility: hidden;"
                             >
-                            <div class="header-dropdown dropdown col-md-2">
-                                <select class="btn btn-success" (change)="onChangeSelectedWeight($event)" (change)="onChangeUnit($event)">
-                                    <option value="g">g</option>
-                                    <option value="kg" selected>kg</option>
-                                </select>
-                            </div>
-
-                            
                         </div>
                     </div>
                     
                 </div>
+
             </div>
         </div>
 
@@ -56,10 +49,10 @@
                             formControlName="ausgangsmost"
                             (input)="calculateResultForm"
                         >
-                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.ausgangsmost')?.valid && calculation3Form.get('userData.ausgangsmost')?.touched">Bitte gebe eine Zahl ein!</div>
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.ausgangsmost')?.valid && calculation3Form.get('userData.ausgangsmost')?.touched">Gebe einen positven Wert ein!</div>
                     </div>
                     <div class="main-dropdown dropdown col-md-2">
-                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedVolume($event)" (change)="onChangeUnit2($event)">
+                        <select name="membership" id="membership" class="btn" (change)="onChangeSelectedVolume($event)" (change)="onChangeUnit2($event)">
                             <option value="l">l</option>
                             <option value="hl" selected>hl</option>
                         </select>
@@ -75,13 +68,12 @@
                             name="anreicherungsquote"
                             formControlName="anreicherungsquote"
                         >
-                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.anreicherungsquote')?.valid && calculation3Form.get('userData.anreicherungsquote')?.touched">Maximale Quote erreicht!</div>
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.anreicherungsquote')?.valid && calculation3Form.get('userData.anreicherungsquote')?.touched">Gebe einen Wert von 1-28 ein!</div>
                     </div>
 
-                    <div class="main-dropdown dropdown col-md-2">
-                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeightVolume($event)">
-                            <option value="g/l" selected>g/l</option>
-                            <option value="kg/l">kg/l</option>
+                    <div class="main-dropdown dropdown col-md-2 select-arrow">
+                        <select name="membership" id="membership" class="btn">
+                            <option value="g/l">g/l</option>
                         </select>
                     </div>
                 </div>
@@ -95,13 +87,12 @@
                             name="zuckerungsfaktor"
                             formControlName="zuckerungsfaktor"
                         >
-                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.zuckerungsfaktor')?.valid && calculation3Form.get('userData.zuckerungsfaktor')?.touched">Bitte gebe eine Zahl ein!</div>
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation3Form.get('userData.zuckerungsfaktor')?.valid && calculation3Form.get('userData.zuckerungsfaktor')?.touched">Gebe einen postiven Wert ein!</div>
                     </div>
 
-                    <div class="main-dropdown dropdown col-md-2">
-                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedZuckerungsfaktor($event)">
+                    <div class="main-dropdown dropdown col-md-2 select-arrow">
+                        <select class="btn">
                             <option value="g/l">g/l</option>
-                            <option value="kg/l"selected>kg/hl</option>
                         </select>
                     </div>
                 </div>
@@ -113,11 +104,11 @@
                         type="number"
                         name="saccharose"
                         formControlName="saccharose"
-                        placeholder="0.62"
                         readonly
+                        placeholder="{{'0,62'}}"
                     >
-                    <div class="main-dropdown dropdown col-md-2">
-                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeight($event)">
+                    <div class="main-dropdown dropdown col-md-2 select-arrow">
+                        <select name="membership" id="membership" class="btn" (change)="onChangeSelectedWeight($event)">
                             <option value="kg/l">l/kg</option>
                         </select>
                     </div>
@@ -132,8 +123,8 @@
                         name="volumenvermehrung"
                         formControlName="volumenvermehrung"
                     >
-                    <div class="main-dropdown dropdown col-md-2">
-                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeight($event)">
+                    <div class="main-dropdown dropdown col-md-2 select-arrow">
+                        <select name="membership" id="membership" class="btn" (change)="onChangeSelectedWeight($event)">
                             <option value="l">l</option>
                         </select>
                     </div>

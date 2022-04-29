@@ -38,8 +38,9 @@
 #help-block-eingabe {
   position: absolute;
   white-space: nowrap;
-  top: 2.5em;
+  top: 2.6em;
   left: 0;
   right: 0;
   bottom: 0;
+  font-size: 0.9rem;
 }

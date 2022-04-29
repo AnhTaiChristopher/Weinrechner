@@ -17,21 +17,8 @@
                             <div class="header-result col-md-7">
                                 <span 
                                     *ngIf="calculation2Form.get('userData.restzuckergewünscht')?.valid && calculation2Form.get('userData.brix')?.valid && calculation2Form.get('userData.weinmenge')?.valid">
-                                    {{calculation2Form.get("userData.result")?.value}} {{selectedUnit}} rekt. Konzentrat
+                                    {{calculation2Form.get("userData.result")?.value}} {{selectedUnit}} rektifiziertes Konzentrat
                                 </span>
-                            </div>
-
-                            <input 
-                                readonly
-                                class="main-input col-md-3" 
-                                type="number" 
-                                style="visibility: hidden;"
-                            >
-                            <div class="header-dropdown dropdown col-md-2">
-                                <select class="btn btn-success" (change)="onChangeSelectedWeight($event)" (change)="onChangeUnit($event)">
-                                    <option value='g' selected>g</option>
-                                    <option value='kg'>kg</option>
-                                </select>
                             </div>
 
                         </div>
@@ -53,12 +40,11 @@
                             name="restzuckergewünscht"
                             formControlName="restzuckergewünscht"
                         >
-                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation2Form.get('userData.restzuckergewünscht')?.valid && calculation2Form.get('userData.restzuckergewünscht')?.touched">Bitte gebe eine Zahl ein!</div>
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation2Form.get('userData.restzuckergewünscht')?.valid && calculation2Form.get('userData.restzuckergewünscht')?.touched">Gebe einen Wert von 1-100 ein!</div>
                     </div>
-                    <div class="main-dropdown dropdown col-md-2">
-                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedWeightVolume($event)">
+                    <div class="main-dropdown dropdown col-md-2 select-arrow">
+                        <select name="membership" id="membership" class="btn">
                             <option value="g/l" selected>g/l</option>
-                            <option value="kg/l">kg/l</option>
                         </select>
                     </div>
                 </div>
@@ -72,10 +58,10 @@
                             name="brix"
                             formControlName="brix"
                         >
-                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation2Form.get('userData.brix')?.valid && calculation2Form.get('userData.brix')?.touched">Bitte gebe eine Zahl ein!</div>
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation2Form.get('userData.brix')?.valid && calculation2Form.get('userData.brix')?.touched">Gebe einen Wert von 1-300 ein!</div>
                     </div>
-                    <div class="main-dropdown dropdown col-md-2">
-                        <select name="membership" id="membership" class="btn btn-success">
+                    <div class="main-dropdown dropdown col-md-2 select-arrow">
+                        <select class="btn">
                             <option value="free">°Grad</option>
                         </select>
                     </div>
@@ -90,16 +76,17 @@
                             name="weinmenge"
                             formControlName="weinmenge"
                         >
-                    <div id="help-block-eingabe" class="help-block" *ngIf="!calculation2Form.get('userData.weinmenge')?.valid && calculation2Form.get('userData.weinmenge')?.touched">Bitte gebe eine Zahl ein!</div>
+                    <div id="help-block-eingabe" class="help-block" *ngIf="!calculation2Form.get('userData.weinmenge')?.valid && calculation2Form.get('userData.weinmenge')?.touched">Gebe einen positiven Wert ein!</div>
                     </div>
                     <div class="main-dropdown dropdown col-md-2">
-                        <select name="membership" id="membership" class="btn btn-success" (change)="onChangeSelectedVolume($event)">
-                            <option value="l" selected>l</option>
+                        <select name="membership" id="membership" class="btn" (change)="onChangeSelectedVolume($event)" (change)="onChangeUnitVol($event)">
+                            <option value="l">l</option>
                             <option value="hl">hl</option>
                         </select>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </form>

@@ -11,29 +11,78 @@
                         <h3 class="header-title d-inline">Alkoholausbeute im Most berechnen</h3>
                     </div>
 
-                    <div class="header-container pt-4 row d-flex align-items-center">
-                        <div class="header-content d-flex align-items-center justify-content-between">
-
-                            <div class="col-lg-4 col-md-6 col-sm-6 text-center" style="position: relative;">
-                                <label for="oechsle" class="form-label col-12">Eingabe</label>
-                                <input 
-                                    type="number" 
-                                    name="eingabe" 
-                                    class="form-control" 
-                                    id="eingabe" 
-                                    formControlName="eingabe"
-                                >
-                            <span id="help-block-eingabe" class="help-block" *ngIf="!calculation1Form.get('userData.eingabe')?.valid && calculation1Form.get('userData.eingabe')?.touched">Bitte gebe eine Zahl ein!</span>
+                    <div class="row">
+                        <div class="header-content my-4 col-lg-6">
+                            <div class="header-content-title text-center mb-3">Zuckergehalt</div>
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <label for="oechsle" class="form-label">Oechsle</label>
+                                    <input 
+                                        readonly
+                                        type="number" 
+                                        name="oechsle" 
+                                        class="form-control mb-2" 
+                                        id="oechsle" 
+                                        formControlName="oechsle"
+                                    >
+                                </div>
+            
+                                <div class="col-md-4 text-center">
+                                    <label for="kmw" class="form-label">KMW</label>
+                                    <input 
+                                        readonly
+                                        type="number" 
+                                        name="kmw" 
+                                        class="form-control mb-2" 
+                                        id="kmw" 
+                                        formControlName="kmw"
+                                    >
+                                </div>
+            
+                                <div class="col-md-4 text-center">
+                                    <label for="sugar_g/l" class="form-label">g/l</label>
+                                    <input 
+                                        readonly
+                                        type="number" 
+                                        name="sugar_weight_vol" 
+                                        class="form-control" 
+                                        id="sugar_weight_vol" 
+                                        formControlName="sugar_weight_vol"
+                                    >
+                                </div>
                             </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-3 ps-3">
-                                <label for="oechsle" class="form-label col-12" style="visibility: hidden;">Eingabe</label>
-                                <select name="membership" id="membership" class="btn btn-success"(change)="onChangeSelected($event)" [disabled]="calculation1Form.get('userData.eingabe')?.invalid">
-                                    <option value="oechsle">Oechsle</option>
-                                    <option value="sugar_weight_vol">Zucker g/l</option>
-                                </select>
+                        </div>
+                    
+                        <div class="header-content my-4 col-lg-6">
+                            <div class="header-content-title text-center mb-3">Alkoholgehalt</div>
+                                <div class="row d-flex justify-content-center">
+                
+                                    <div class="col-md-4 text-center">
+                                        <label for="oechsle" class="form-label">g/l</label>
+                                        <input 
+                                            readonly
+                                            type="number" 
+                                            name="alcohol_weight_vol" 
+                                            class="form-control mb-2" 
+                                            id="alcohol_weight_vol" 
+                                            formControlName="alcohol_weight_vol"
+                                        >
+                                    </div>
+                
+                                    <div class="col-md-4 text-center">
+                                        <label for="oechsle" class="form-label">%vol</label>
+                                        <input 
+                                            readonly
+                                            type="number" 
+                                            name="alcohol_vol" 
+                                            class="form-control mb-2" 
+                                            id="alcohol_vol" 
+                                            formControlName="alcohol_vol"
+                                        >
+                                    </div>
+                                    
+                                </div>
                             </div>
-                        
                         </div>
                     </div>
 
@@ -41,81 +90,30 @@
             </div>
         </div>
         
-        <div class="container">
+        <div class="container mt-3">
             <div class="row">
 
-                <div class="main-content my-5 col-lg-6 col-md-12">
-                    <div class="main-title text-center mb-3">Zuckergehalt</div>
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <label for="oechsle" class="form-label">Oechsle</label>
-                            <input 
-                                readonly
-                                type="text" 
-                                name="oechsle" 
-                                class="form-control mb-2" 
-                                id="oechsle" 
-                                formControlName="oechsle"
-                            >
-                        </div>
-    
-                        <div class="col-md-4 text-center">
-                            <label for="kmw" class="form-label">KMW</label>
-                            <input 
-                                readonly
-                                type="text" 
-                                name="kmw" 
-                                class="form-control mb-2" 
-                                id="kmw" 
-                                formControlName="kmw"
-                            >
-                        </div>
-    
-                        <div class="col-md-4 text-center">
-                            <label for="sugar_g/l" class="form-label">g/l</label>
-                            <input 
-                                readonly
-                                type="text" 
-                                name="sugar_weight_vol" 
-                                class="form-control" 
-                                id="sugar_weight_vol" 
-                                formControlName="sugar_weight_vol"
-                            >
-                        </div>
+                <div id="main-content" class="main-content">
+                    <div class="main-title col-md-7">Umrechnungswert</div>
+                    <div class="position-relative">
+                        <input 
+                            type="number" 
+                            name="eingabe" 
+                            class="main-input form-control" 
+                            id="eingabe" 
+                            formControlName="eingabe"
+                        >
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation1Form.get('eingabe')?.valid && calculation1Form.get('eingabe')?.touched && this.selectedUnit ==='oechsle'">Gebe einen Wert von 40-400 ein!</div>
+                        <div id="help-block-eingabe" class="help-block" *ngIf="!calculation1Form.get('eingabe')?.valid && calculation1Form.get('eingabe')?.touched && this.selectedUnit === 'sugar_weight_vol'">Gebe einen Wert von 1-400!</div>
                     </div>
-                </div>
-            
-                <div class="main-content my-5 col-lg-6 col-md-12">
-                    <div class="main-title text-center mb-3">Alkoholgehalt</div>
-                        <div class="row">
-        
-                            <div class="col-md-6 text-center">
-                                <label for="oechsle" class="form-label">g/l</label>
-                                <input 
-                                    readonly
-                                    type="text" 
-                                    name="alcohol_weight_vol" 
-                                    class="form-control mb-2" 
-                                    id="alcohol_weight_vol" 
-                                    formControlName="alcohol_weight_vol"
-                                >
-                            </div>
-        
-                            <div class="col-md-6 text-center">
-                                <label for="oechsle" class="form-label">%vol</label>
-                                <input 
-                                    readonly
-                                    type="text" 
-                                    name="alcohol_vol" 
-                                    class="form-control mb-2" 
-                                    id="alcohol_vol" 
-                                    formControlName="alcohol_vol"
-                                >
-                            </div>
-                            
-                        </div>
+                    <div class="main-dropdown dropdown col-md-2">
+                        <select class="btn"(change)="onChangeSelected($event)">
+                            <option value="oechsle">Oechsle</option>
+                            <option value="sugar_weight_vol">Zucker g/l</option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
+
 </form>

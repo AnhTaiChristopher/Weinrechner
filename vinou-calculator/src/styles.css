@@ -81,3 +81,17 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
+.select-arrow select {
+  appearance: none;
+	padding: 5px;
+	background-color: #648330;
+	color: white;
+	border: none;
+	font-family: inherit;
+	outline: none;
+}
+
+.main-dropdown select {
+  background-color: #648330;
+  color: white;
+}

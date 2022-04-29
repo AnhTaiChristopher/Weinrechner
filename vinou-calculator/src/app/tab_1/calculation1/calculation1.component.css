@@ -1,8 +1,42 @@
 #help-block-eingabe {
   position: absolute;
-  top: 5em;
+  white-space: nowrap;
+  top: 2.6em;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  font-size: 0.9rem;
+}
+.main-content {
+  display: flex;
+  align-items: center;
+}
+
+#main-content {
+  border-bottom: 1.5px solid #ebebeb;
+  padding-bottom: 1em;
+}
+
+.main-title {
+  font-size: 1.3em;
+  font-weight: 300;
+  color: #333;
+  margin: 1em;
+  max-width: 100%;
+  min-width: 100px;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 767px) {  
+  .main-title {
+    width: 100%;
+    margin: 0.5em;
+  }
+
+  .header-result {
+    width: 100%;
+    font-size: 1em;
+    font-weight: 400;
+  }
 }
 
