@@ -15,20 +15,20 @@ export class Calculation2Component implements OnInit, OnDestroy {
   calculation2Form!: FormGroup;
   subscription!:Subscription
 
-  constructor(private fb: FormBuilder) { 
-    
+  constructor(private fb: FormBuilder) {
+
   }
 
   ngOnInit(): void {
     this.calculation2Form = this.fb.group({
       "userData": new FormGroup({
-        "result": new FormControl(null),
-        "restzuckergewünscht": new FormControl(null, [Validators.required,Validators.min(1),Validators.max(100)]),
-        "brix": new FormControl(null, [Validators.required,Validators.min(0.01),Validators.max(300)]),
-        "weinmenge": new FormControl(null, [Validators.required,Validators.min(0.01)]),
+        "result": new FormControl,
+        "restzuckergewünscht": new FormControl((null),[Validators.required,Validators.min(1),Validators.max(100)]),
+        "brix": new FormControl((null),[Validators.required,Validators.min(0.01),Validators.max(300)]),
+        "weinmenge": new FormControl((null),[Validators.required,Validators.min(0.01)]),
       })
     })
- 
+
     this.subscription=merge(
       this.calculation2Form.get('userData.restzuckergewünscht')!.valueChanges,
       this.calculation2Form.get('userData.brix')!.valueChanges,
@@ -41,7 +41,7 @@ export class Calculation2Component implements OnInit, OnDestroy {
       }
    })
   }
- 
+
   calculateResultForm() {
     const restzuckergewünscht=this.calculation2Form.get('userData.restzuckergewünscht')?.value
     const brix=this.calculation2Form.get('userData.brix')?.value

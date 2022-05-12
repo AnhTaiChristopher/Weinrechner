@@ -34,12 +34,12 @@ export class Calculation3Component implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.calculation3Form = this.fb.group({
       "userData": new FormGroup({
-        "result": new FormControl(null),
-        "ausgangsmost": new FormControl(null, [Validators.required,Validators.min(1)]),
-        "anreicherungsquote": new FormControl(null, [Validators.required,Validators.min(1),Validators.max(28)]),
-        "zuckerungsfaktor": new FormControl(null, [Validators.required,Validators.min(0.01)]),
-        "saccharose": new FormControl(null),
-        "volumenvermehrung": new FormControl(null),
+        "result": new FormControl,
+        "ausgangsmost": new FormControl((null),[Validators.required,Validators.min(1)]),
+        "anreicherungsquote": new FormControl((null),[Validators.required,Validators.min(1),Validators.max(28)]),
+        "zuckerungsfaktor": new FormControl((null),[Validators.required,Validators.min(0.01)]),
+        "saccharose": new FormControl,
+        "volumenvermehrung": new FormControl,
       })
     })
 
@@ -57,7 +57,6 @@ export class Calculation3Component implements OnInit, OnDestroy {
   }
 
   calculateResultForm() {
-    console.log(this.selectedUnitVol)
     if(this.calculation3Form.get('userData.ausgangsmost')?.valid && this.calculation3Form.get('userData.anreicherungsquote')?.valid && this.calculation3Form.get('userData.zuckerungsfaktor')?.valid) {
       const ausgangsmost=this.calculation3Form.get('userData.ausgangsmost')?.value
       const anreicherungsquote=this.calculation3Form.get('userData.anreicherungsquote')?.value
@@ -71,8 +70,6 @@ export class Calculation3Component implements OnInit, OnDestroy {
   }
 
   calculateResultFormLiter() {
-    console.log(this.selectedUnitVol)
-    console.log(this.calculation3Form.get('userData.saccharose')?.value)
     if(this.calculation3Form.get('userData.ausgangsmost')?.valid && this.calculation3Form.get('userData.anreicherungsquote')?.valid && this.calculation3Form.get('userData.zuckerungsfaktor')?.valid) {
       const ausgangsmost=this.calculation3Form.get('userData.ausgangsmost')?.value
       const anreicherungsquote=this.calculation3Form.get('userData.anreicherungsquote')?.value

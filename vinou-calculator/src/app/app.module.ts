@@ -29,7 +29,7 @@ import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxHideOnScrollModule 
+    NgxHideOnScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

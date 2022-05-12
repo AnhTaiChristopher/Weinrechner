@@ -1,4 +1,6 @@
-.bg-image {
+/* Hintergrundbild mit Transparenten Overlay  */
+
+.bg-image { 
   background: url(/assets/images/header_image.jpeg);
   background-position: center center;
   background-repeat: no-repeat;
@@ -14,10 +16,10 @@
 }
 
 .home-header-sub-title {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  overflow: hidden; 
+  border-right: .15em solid orange; /* Schreibanimation Cursor */
+  white-space: nowrap; /* Hält den Inhalt in einer Zeile */
+  margin: 0 auto;
   overflow-wrap: break-word;
   letter-spacing: .08em; 
   animation: 
@@ -25,6 +27,8 @@
     blink-caret .75s step-end infinite;
     animation-duration: 3s;
 }
+
+/* Größenanpassungen für die Mobile Sicht */
 
 @media (max-width: 617px) {  
   .home-header-title {
@@ -41,6 +45,7 @@
  } 
 }
 
+/* Spezifikationen für die Animationen  */
 
 @keyframes typing {
   from { width: 0 }

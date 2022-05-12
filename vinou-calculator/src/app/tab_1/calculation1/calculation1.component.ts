@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder, Form} from '@angular/forms';
-import { faUmbrella } from '@fortawesome/free-solid-svg-icons';
-import { merge, Observable, Subscription } from 'rxjs'
+import { FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { merge, Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-calculation1',
@@ -9,24 +8,24 @@ import { merge, Observable, Subscription } from 'rxjs'
   styleUrls: ['./calculation1.component.css']
 })
 export class Calculation1Component implements OnInit, OnDestroy {
-  
+
   selectedUnit: string = "oechsle";
   calculation1Form!: FormGroup;
   subscription!:Subscription
-  value: number = 40
-  constructor(private fb: FormBuilder) { 
+
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.calculation1Form = this.fb.group({
       "userData": new FormGroup({
-          "alcohol_vol": new FormControl(null),
-          "alcohol_weight_vol": new FormControl(null),
-          "kmw": new FormControl(null),
-          "oechsle": new FormControl(null),
-          "sugar_weight_vol": new FormControl(null),
+          "alcohol_vol": new FormControl,
+          "alcohol_weight_vol": new FormControl,
+          "kmw": new FormControl,
+          "oechsle": new FormControl,
+          "sugar_weight_vol": new FormControl,
         }),
-        "eingabe": new FormControl(null, [Validators.required, Validators.min(1), Validators.max(400)]),
+        "eingabe": new FormControl(null, [Validators.required, Validators.min(40), Validators.max(400)]),
     })
 
     this.subscription=merge(
@@ -39,7 +38,7 @@ export class Calculation1Component implements OnInit, OnDestroy {
       }
    })
 
-   
+
   }
 
   calculateResultForm() {
@@ -61,7 +60,7 @@ export class Calculation1Component implements OnInit, OnDestroy {
   calculateResultFormSugarWeightVol() {
     if(this.calculation1Form.get('eingabe')?.valid) {
       const eingabe = (this.calculation1Form.get('eingabe')?.value)
-    
+
       this.calculation1Form.get('userData.sugar_weight_vol')?.setValue(eingabe)
       const sugar_weight_vol = (this.calculation1Form.get('userData.sugar_weight_vol')?.value)
       this.calculation1Form.get('userData.alcohol_weight_vol')?.setValue(eingabe/2)
@@ -75,7 +74,7 @@ export class Calculation1Component implements OnInit, OnDestroy {
 
   onChangeSelected(event: any) {
     this.selectedUnit = event.target.value;
-    
+
     if(event.target.value == "oechsle") {
       this.calculateResultForm();
     } else if (event.target.value == "sugar_weight_vol") {
