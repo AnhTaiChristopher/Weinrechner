@@ -25,7 +25,7 @@ export class Calculation1Component implements OnInit, OnDestroy {
           "oechsle": new FormControl,
           "sugar_weight_vol": new FormControl,
         }),
-        "eingabe": new FormControl(null, [Validators.required, Validators.min(40), Validators.max(400)]),
+        "eingabe": new FormControl(null, [Validators.required, Validators.min(1), Validators.max(400)]),
     })
 
     this.subscription=merge(
@@ -37,12 +37,10 @@ export class Calculation1Component implements OnInit, OnDestroy {
         this.calculateResultFormSugarWeightVol();
       }
    })
-
-
   }
 
   calculateResultForm() {
-    if(this.calculation1Form.get('eingabe')?.valid) {
+    if(this.calculation1Form.get('eingabe')?.valid && this.calculation1Form.get('eingabe')?.value >= 40) {
       const eingabe = (this.calculation1Form.get('eingabe')?.value)
 
       this.calculation1Form.get('userData.oechsle')?.setValue(eingabe)

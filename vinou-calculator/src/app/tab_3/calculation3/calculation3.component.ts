@@ -65,8 +65,9 @@ export class Calculation3Component implements OnInit, OnDestroy {
       this.calculation3Form.get('userData.volumenvermehrung')?.setValue(Math.round(zuckerungsfaktor*anreicherungsquote*ausgangsmost*0.62))
       this.selectedUnit = "kg"
       this.convert();
-      console.log(this.calculation3Form.get('userData.saccharose')?.value)
     }
+    console.log(this.calculation3Form.get("userData.result")?.value)
+
   }
 
   calculateResultFormLiter() {

@@ -23,7 +23,7 @@ body::-webkit-scrollbar {
   font-weight: 400;
 }
 
-@media (max-width: 767px) {  
+@media (max-width: 767px) {
   .header-title {
     font-size: 1em;
   }
@@ -70,10 +70,10 @@ select.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .select-arrow select {

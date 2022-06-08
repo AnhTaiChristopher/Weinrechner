@@ -7,15 +7,15 @@
                 <div class="header">
 
                     <div class="header-main pt-4">
-                        <img class="header-img d-inline me-3" src="/assets/images/calculator_icon.png" height="60px" width="60px">
+                        <img class="header-img d-inline ms-2 me-3" src="/assets/images/calculator_icon.png" height="60px" width="60px">
                         <h3 class="header-title d-inline">Restsüßeverleihung mit RTK</h3>
                     </div>
-                    
+
                     <div class="header-container pt-4 row d-flex align-items-center">
                         <div class="header-content d-flex align-items-center">
-                            
+
                             <div class="header-result col-md-7">
-                                <span 
+                                <span
                                     *ngIf="calculation2Form.get('userData.restzuckergewünscht')?.valid && calculation2Form.get('userData.brix')?.valid && calculation2Form.get('userData.weinmenge')?.valid">
                                     {{calculation2Form.get("userData.result")?.value}} {{selectedUnit}} rektifiziertes Konzentrat
                                 </span>
@@ -30,12 +30,12 @@
 
         <div class="container mt-3">
             <div class="row">
-                
+
                 <div id="main-content" class="main-content">
                     <div class="main-title col-md-7">Restzucker gewünscht</div>
                     <div class="position-relative">
-                        <input 
-                            class="main-input col-md-3 form-control" 
+                        <input
+                            class="main-input col-md-3 form-control"
                             type="number"
                             name="restzuckergewünscht"
                             formControlName="restzuckergewünscht"
@@ -48,12 +48,12 @@
                         </select>
                     </div>
                 </div>
-    
+
                 <div class="main-content">
                     <div class="main-title col-md-7">°Brix</div>
                     <div class="position-relative">
-                        <input 
-                            class="main-input col-md-3 form-control" 
+                        <input
+                            class="main-input col-md-3 form-control"
                             type="number"
                             name="brix"
                             formControlName="brix"
@@ -66,12 +66,12 @@
                         </select>
                     </div>
                 </div>
-    
+
                 <div class="main-content">
                     <div class="main-title col-md-7">Weinmenge</div>
                     <div class="position-relative">
-                        <input 
-                            class="main-input col-md-3 form-control" 
+                        <input
+                            class="main-input col-md-3 form-control"
                             type="number"
                             name="weinmenge"
                             formControlName="weinmenge"
@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </form>

@@ -1,0 +1,6 @@
+{
+	"appId": "com.vinou.calculator",
+	"appName": "vinou-calculator",
+	"webDir": "dist/vinou-calculator",
+	"bundledWebRuntime": false
+}

@@ -8,7 +8,7 @@
                 <div class="header">
 
                     <div class="header-main pt-4">
-                        <img class="header-img d-inline me-3" src="/assets/images/calculator_icon.png" height="60px" width="60px">
+                        <img class="header-img d-inline ms-2 me-3" src="/assets/images/calculator_icon.png" height="60px" width="60px">
                         <h3 class="d-inline header-title">Anreicherung zur Alkoholerhöhung</h3>
                     </div>
 
@@ -17,6 +17,7 @@
 
                             <div class="header-result col-md-7">
                                 <span
+                                    lang="fr"
                                     *ngIf="calculation3Form.get('userData.ausgangsmost')?.valid && calculation3Form.get('userData.anreicherungsquote')?.valid && calculation3Form.get('userData.zuckerungsfaktor')?.valid">
                                     {{calculation3Form.get("userData.result")?.value}} {{selectedUnit}} Zucker auf {{calculation3Form.get("userData.ausgangsmost")?.value}} {{selectedUnitVol}} Most
                                 </span>
@@ -26,6 +27,8 @@
                                 readonly
                                 class="main-input col-md-3"
                                 type="number"
+                                lang="fr"
+                                formnovalidate="formnovalidate"
                                 style="visibility: hidden;"
                             >
                         </div>
@@ -45,6 +48,8 @@
                         <input
                             class="main-input col-md-3 form-control"
                             type="number"
+                            lang="fr"
+                            formnovalidate="formnovalidate"
                             name="ausgangsmost"
                             formControlName="ausgangsmost"
                             (input)="calculateResultForm"
@@ -65,6 +70,8 @@
                         <input
                             class="main-input col-md-3 form-control"
                             type="number"
+                            lang="fr"
+                            formnovalidate="formnovalidate"
                             name="anreicherungsquote"
                             formControlName="anreicherungsquote"
                         >
@@ -84,6 +91,7 @@
                         <input
                             class="main-input col-md-3 form-control"
                             type="number"
+                            formnovalidate="formnovalidate"
                             name="zuckerungsfaktor"
                             formControlName="zuckerungsfaktor"
                         >
@@ -102,6 +110,8 @@
                     <input
                         class="main-input col-md-3 form-control"
                         type="number"
+                        formnovalidate="formnovalidate
+                        "
                         name="saccharose"
                         formControlName="saccharose"
                         readonly
@@ -120,6 +130,8 @@
                         readonly
                         class="main-input col-md-3 form-control"
                         type="number"
+                        formnovalidate="formnovalidate
+                        "
                         name="volumenvermehrung"
                         formControlName="volumenvermehrung"
                     >
